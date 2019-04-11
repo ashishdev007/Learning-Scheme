@@ -1,11 +1,18 @@
 (
-  define [second up] 
+  define [second a_list] 
+  (define up (car a_list))
+  (define ori (car (cdddr a_list)))
+  (define newSec (+ ori up))
+
   (
-    cond ([> (/ up 60) 1] [print "yes"])
+    cond ([>= (/ newSec 60) 1] [
+      (define upby (- (/ newSec 60) (modulo newSec 60)))
+      (print upby)
+    ])
   )
 )
 
 (
-  define (time up)
-  [second up]
+  define (time a_list)
+  [second a_list]
 )
