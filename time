@@ -1,0 +1,11 @@
+(
+  define [second up] 
+  (
+    cond ([> (/ up 60) 1] [print "yes"])
+  )
+)
+
+(
+  define (time up)
+  [second up]
+)
