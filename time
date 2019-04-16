@@ -1,19 +1,42 @@
 (
-  define [second a_list] 
-  (define up (car a_list))
-  (define ori (car (cdddr a_list)))
-  (define newSec (+ ori up))
+  define [second original up] 
+  (define newSec (+ original up))
+  (define minAdd (div newSec 60))
 
-(
-    cond([> (div newSec 60) 0]
-      (define minAdd (div newSec 60))
+  (
+    cond([= (- newSec (* 60 minAdd)) 60]
+      (define finalSec 00)
+    )
+    (else
       (define finalSec (- newSec (* 60 minAdd)))
-      (print finalSec)
+ 
     )
   )
+  (print "a")
+    ;(print minAdd)
+)
+
+(
+  define [minute original up]
+  (define newMin (+ original up))
+  (define hourAdd (div newMin 60))
+
+  (
+    cond([= (- newMin (* 60 hourAdd)) 60]
+      (define finalMin 00)
+    )
+    (else
+      (define finalMin (- newMin (* 60 hourAdd)))
+    )
+  )
+
 )
 
 (
   define (time a_list)
-  [second a_list]
+  [second (car (cdddr a_list)) (car a_list)]
+  ;(print minAdd)
+  ;[minute (car (cddr a_list)) minAdd]
+  (print finalSec)
+  ;(print finalMin)
 )
