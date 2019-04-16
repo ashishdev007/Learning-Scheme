@@ -33,6 +33,22 @@
 )
 
 (
+  define [hour original up]
+  (define newHr (+ original up))
+  (define add (div newHr 24))
+
+  (
+    cond([= (- newHr (* 24 add)) 24]
+      (define finalHr 00)
+    )
+    (else
+      (define finalHr (- newHr (* 24 add)))
+    )
+  )
+  (print newHr)
+)
+
+(
   define (time a_list)
   [second (car (cdddr a_list)) (car a_list)]
   ;(print minAdd)
