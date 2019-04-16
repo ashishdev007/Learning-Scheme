@@ -4,11 +4,12 @@
   (define ori (car (cdddr a_list)))
   (define newSec (+ ori up))
 
-  (
-    cond ([>= (/ newSec 60) 1] [
-      (define upby (- (/ newSec 60) (modulo newSec 60)))
-      (print upby)
-    ])
+(
+    cond([> (div newSec 60) 0]
+      (define minAdd (div newSec 60))
+      (define finalSec (- newSec (* 60 minAdd)))
+      (print finalSec)
+    )
   )
 )
 
